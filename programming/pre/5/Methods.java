@@ -8,16 +8,19 @@ public class Methods {
     int x, y, z;
     Scanner in = new Scanner(System.in);
 
-    System.out.println("Enter value for m:");
+    System.out.println("Enter first value: ");
     x = in.nextInt();
-    // Added Day 0
-    input.nextLine();
-    System.out.println("Enter value for n:");
+    in.nextLine();
+    
+    System.out.println("Enter second value: ");
     y = in.nextInt();
-    // Added Day 0
-    input.nextLine();
+    in.nextLine();
+    
+    System.out.println("Enter third value: ");
+    z = in.nextInt();
+    in.nextLine();
 
-    System.out.println(ack(x,y));
+    System.out.println(isTriangle(x,y,z));
   }
 
   // Exercise 2
@@ -31,7 +34,7 @@ public class Methods {
 
   // Exercise 3
   public static boolean isTriangle(int a, int b, int c){
-    if ((c > a + b) || (b > a + c) || (a > b + c)){
+    if ((c >= a + b) || (b >= a + c) || (a >= b + c)){
       return false;
     } else {
       return true;
