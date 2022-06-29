@@ -1,5 +1,5 @@
- * Last name: Taylor
-* First name: Grant-Knight
+* Last name: Grant-Knight
+* First name: Taylor
 * Github username: tgrantknight
 
 * Instructions:
