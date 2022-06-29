@@ -8,6 +8,8 @@ public class Celsius {
 
     System.out.println("Enter Celsius value to convert:");
     celsius = in.nextDouble();
+    // Added during day 0 class
+    input.nextLine();
     
     fahrenheit = celsius * (9.0/5.0) + 32;
 

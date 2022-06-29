@@ -3,3 +3,4 @@
 - New class GitHub:
 https://github.com/hunter-teacher-cert/cohort-3-summer-work-tgrantknight-1
 
+Added input.nextLine(); to Time.class

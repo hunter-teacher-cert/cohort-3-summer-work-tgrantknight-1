@@ -10,8 +10,12 @@ public class Methods {
 
     System.out.println("Enter value for m:");
     x = in.nextInt();
+    // Added Day 0
+    input.nextLine();
     System.out.println("Enter value for n:");
     y = in.nextInt();
+    // Added Day 0
+    input.nextLine();
 
     System.out.println(ack(x,y));
   }

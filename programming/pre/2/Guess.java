@@ -15,6 +15,9 @@ public class Guess {
 
     System.out.print("Type a guess: ");
     guess = in.nextInt();
+    // Added during Day 0
+    input.nextLine();
+    
     offBy = guess - actual;
 
     System.out.println("Your guess is: " + guess);
