@@ -26,4 +26,4 @@ s = (--beers == 1)?"":"s";
 ? ends the if part
 "" is the true part
 : starts the else
-"s" is the else part
+"s"

@@ -9,10 +9,13 @@ public class Beer {
   public static void nVerses (int beers){
     System.out.println();
     if (beers > 0){
-      System.out.printf("%d bottles of beer on the wall,\n", beers);
-      System.out.printf("%d bottles of beer,\n", beers);
+      System.out.printf("%d %s of beer on the wall,\n", beers, 
+            (beers==1)?"bottle":"bottles");
+      System.out.printf("%d %s of beer,\n", beers, 
+            (beers==1)?"bottle":"bottles");
       System.out.printf("ya' take one down, ya' pass it around\n");
-      System.out.printf("%d bottles of beer on the wall,\n", beers);
+      System.out.printf("%d %s of beer on the wall,\n", beers - 1,     
+            (beers - 1 ==1)?"bottle":"bottles");
 
       beers = beers - 1;
       nVerses(beers);
