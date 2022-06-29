@@ -1,0 +1,27 @@
+Exercise 1
+if ((x > 0) && (x < 10)){
+  System.out.println("positive single digit number.");
+}
+
+
+Exercise 2
+1. Stack diagram the second time zoop is invoked:
+
+    main: bizz is 5, buzz is 2
+    zoop: fred is "just for", bob is 5
+    ping: strangStrung is "not "
+    clink: fork is 4
+    zoop: fred is "breakfast", bob is 4
+
+2. The complete output is:
+    just forany not more It's breakfast !
+
+
+Exercise 3
+Stack diagram after invoking nLines with parameter n == 4:
+
+    nLines: n is 4
+    nLines: n is 3
+    nLines: n is 2
+    nLines: n is 1
+    nLines: n is 0

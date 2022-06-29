@@ -1,0 +1,39 @@
+Exercise 2
+
+Method: banana
+Purpose:
+- Takes an integer list "a" as a parameter
+- Traverses the list "a" and muliplies each element to a tempory integer "kiwi"
+- Returns the product of all elements in the list
+
+Variables used in banana:
+- int[] a: The given list that provides the elements to be multiplied together
+- int kiki: A "result" variable that stores the current product as you traverse the list
+- int i: A standard index variable used to track where you are in the list
+
+
+Method: grapefruit
+Purpose:
+- Takes an integer list "a" and an integer "grape" as parameters
+- Traverses the list "a" and compares each element to the integer "grape"
+- Returns the first index that points to an element that matches "grape"
+- If grape is not found in the list, returns -1
+
+Variables used in grapefruit:
+- int[] a: The given list that provides the elements to be compared to "grape"
+- int grape: The given integer to which the elements of list a are compared
+- int i: Standard index variable in the for loop
+
+
+Method: pineapple
+Purpose:
+- Takes an integer list "a" and an integer "apple" as parameters
+- Traverses the list "a" and checks to see if the current element of a is equal to apple
+- If a matching value is found, the for each loop increases the value of the counter variable "pear"
+- Returns the total number of matches made
+
+Variables used in pineapple:
+- int[] a: The given list that provides the elements to be compared to "apple"
+- int apple: The given integer to which the elements of list a are compared
+- int pear: A counter variable used to keep track of the number of matches made
+- int pine: A temporary variable used in the "for each" loop style, stores the current value in the list as it is traversed

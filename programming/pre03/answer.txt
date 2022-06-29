@@ -1,0 +1,11 @@
+1. The output of this code is:
+      No, I wug.You wugga wug.I wug.
+
+2. There are no variables in this program, so a stack diagram doesn't quite work.
+   However, the current output when ping() is first invoked is:
+      No, I wug.You wugga wug
+
+3. If you invoke baffle(); at the end of ping, you would get:
+      No, I wug.You wugga wug.wug.wug.wug. ...
+
+      Where the substring "wug." would repeat forever, creating an infinite loop.
