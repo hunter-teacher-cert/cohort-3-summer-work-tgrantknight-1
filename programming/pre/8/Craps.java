@@ -4,12 +4,13 @@ import java.util.*;
 public class Craps {
 
   public static void main(String[] args){
-    Scanner in = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
     int numRounds;
     int winCount = 0;
 
     System.out.println("How many rounds of Craps do you want to play?");
-    numRounds = in.nextInt();
+    numRounds = input.nextInt();
+    input.nextLine();
 
     for (int i = 0; i < numRounds; i++) {
       boolean win = round();

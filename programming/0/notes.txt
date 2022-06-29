@@ -1,6 +1,29 @@
+6/29/22
+
 - Breakout group Room 10
 - Fixed issue with GitHub repository
 - New class GitHub:
 https://github.com/hunter-teacher-cert/cohort-3-summer-work-tgrantknight-1
 
 Added input.nextLine(); to Time.class
+
+picking variable names for scanners, use *input* not *in* (which is what the book uses)
+
+ex of constants:
+
+final int SEC_IN_MIN = 60;
+
+note the use of final and all caps, constants do not use camelCase.
+
+integer division doesn't *round*, it uses the *floor*
+
+example of a single line if statement with some wild stuff:
+
+s = (--beers == 1)?"":"s";
+
+--beers subtract 1 first from beers
+(--beers == 1) is the condition
+? ends the if part
+"" is the true part
+: starts the else
+"s" is the else part

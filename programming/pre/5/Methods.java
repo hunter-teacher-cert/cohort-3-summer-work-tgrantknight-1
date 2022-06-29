@@ -6,19 +6,19 @@ public class Methods {
   // Main method to test custom methods
   public static void main(String[] args){
     int x, y, z;
-    Scanner in = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
 
     System.out.println("Enter first value: ");
-    x = in.nextInt();
-    in.nextLine();
+    x = input.nextInt();
+    input.nextLine();
     
     System.out.println("Enter second value: ");
-    y = in.nextInt();
-    in.nextLine();
+    y = input.nextInt();
+    input.nextLine();
     
     System.out.println("Enter third value: ");
-    z = in.nextInt();
-    in.nextLine();
+    z = input.nextInt();
+    input.nextLine();
 
     System.out.println(isTriangle(x,y,z));
   }

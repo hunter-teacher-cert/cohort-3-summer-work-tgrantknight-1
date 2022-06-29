@@ -6,10 +6,11 @@ public class Loops {
   // Main method to test custom methods
   public static void main(String[] args){
     int n, result;
-    Scanner in = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
 
     System.out.println("Enter an integer:");
-    n = in.nextInt();
+    n = input.nextInt();
+    input.nextLine();
     result = factorial(n);
 
     System.out.printf("%d factorial is %d",n,result);

@@ -4,11 +4,10 @@ import java.util.*;
 public class Celsius {
   public static void main(String[] args){
     double celsius, fahrenheit;
-    Scanner in = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
 
     System.out.println("Enter Celsius value to convert:");
-    celsius = in.nextDouble();
-    // Added during day 0 class
+    celsius = input.nextDouble();
     input.nextLine();
     
     fahrenheit = celsius * (9.0/5.0) + 32;
