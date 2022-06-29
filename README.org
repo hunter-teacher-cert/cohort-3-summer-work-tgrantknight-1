@@ -1,4 +1,4 @@
-* Last name: Taylor
+ * Last name: Taylor
 * First name: Grant-Knight
 * Github username: tgrantknight
 
