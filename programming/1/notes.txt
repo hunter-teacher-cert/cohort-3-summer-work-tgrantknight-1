@@ -1,2 +1,10 @@
 6/30/22
 
+Emphasize the importance of pseudocode
+
+Steps:
+- Write the steps out on paper
+- Add into code in comments
+- Fill in comments
+
+^ This is from the head of the CS department at Hunter College, a PhD
