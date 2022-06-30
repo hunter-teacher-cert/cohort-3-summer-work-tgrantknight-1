@@ -23,15 +23,14 @@ public class Nim {
     int turn = 1;
     
     // Round begins reading # of stones in the bag
-    System.out.printf("There are %d stones in the bag.\n", stones);
-    System.out.println();
+    printBag(stones);
 
     while(stones > 0){
       System.out.printf("Turn %d\n", turn);
       
       // Player takes their turn first
       stones = playerTurn(stones);
-      System.out.printf("There are %d stones in the bag.\n", stones);
+      printBag(stones);
       System.out.println();
 
       if (stones == 0){
@@ -42,7 +41,7 @@ public class Nim {
       
       // Computer takes their turn second
       stones = computerTurn(stones);
-      System.out.printf("There are %d stones in the bag.\n", stones);
+      printBag(stones);
       System.out.println();
 
       if (stones == 0){
@@ -51,8 +50,9 @@ public class Nim {
 
       turn++;
     }
-
   }
+
+  
   // playerTurn: Simulates the player picking 1-3 stones from the bag
   // int stones: # of stones currently in the bag
   // return: # of stones left after player turn
@@ -64,14 +64,22 @@ public class Nim {
     
     System.out.println("Player turn");
 
-    // While loop is to ensure that player only picks 1-3 stones
-    while (stonesTaken > 3 || stonesTaken < 1){
+    // While loop is to ensure that player 
+    // 1) only picks 1-3 stones and 
+    // 2) doesn't take more stones than are left
+    while (stonesTaken > 3 || stonesTaken < 1 || (stones - stonesTaken < 0)){
       // Ask for the number of stones to remove -- can only remove 1-3
       System.out.println("How many stones would you like to remove? (1-3)");
       stonesTaken = input.nextInt();
       input.nextLine();
+
+      // Check if the player took an incorrect amount of stones
       if (stonesTaken > 3 || stonesTaken < 1) {
         System.out.println("You can only remove 1-3 stones during your turn.");
+      }
+      // Check if the player took more stones than are left in the bag
+      if (stones - stonesTaken < 0){
+        System.out.println("There aren't enough stones left! Try again.");
       }
     }
     // Remove the player's stones taken from the bag and return the new bag amount
@@ -93,18 +101,36 @@ public class Nim {
       stonesTaken = stones;
     } else {
       // If not, the computer picks a random number
-      stonesTaken = (int) Math.random()*2 + 1;
+      stonesTaken = (int) (Math.random()*2) + 1;
     }
 
-    System.out.printf("The computer took %d stones from the bag.\n", stonesTaken);
+    // System.out.printf("The computer took %d stones from the bag.\n", stonesTaken);
+    System.out.println("The computer took " 
+      + numStonesPhrase(stones) 
+      + " from the bag.");
     
     // Remove the computer's stones taken from the bag and return the new bag amount
     return stones - stonesTaken;
   }
 
+  
+  // numStonesPhrase takes a # of stones and 
+  // returns either "1 stone" or "# stones" depending on the # of stones
+  public static String numStonesPhrase(int stones){
+    if (stones == 1){
+      return "1 stone";
+    } else {
+      return stones + " stones";
+    }
+  }
 
-  // TODO: Add a "plural or not" type of method
-
-  // return (stones == 1) ? "stone" : "stones";
+  
+  // printBag prints an update for the number of stones in the bag currently
+  public static void printBag(int stones){
+    System.out.println("There "
+      + ((stones == 1) ? "is " : "are ")
+      + numStonesPhrase(stones) 
+      +" in the bag.\n");
+  }
   
 }

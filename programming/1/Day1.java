@@ -5,7 +5,7 @@ public class Day1 {
   public static void main(String[] args){
 
     String aString = "Heels";
-    String aSentence = "Today is nice!";
+    String aSentence = "Bacon time";
     
     // reverse(aString);
     // toUpper(aString);
@@ -69,7 +69,7 @@ public class Day1 {
     
     // once you find the space, start printing characters
     // once you hit the next space, stop printing characters
-    while(aSentence.charAt(index) != ' '){
+    while(aSentence.charAt(index) != ' ' || index == aSentence.length()){
       // no "ln" because we want once complete word
       System.out.print(aSentence.charAt(index));
       index++;
