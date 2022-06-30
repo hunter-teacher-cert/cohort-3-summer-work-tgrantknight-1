@@ -18,18 +18,39 @@ public class Nim {
 
     System.out.println("Welcome to the game of Nim!");
     
-    // Create the starting bag size of 12 stones
+    // Create the starting bag size of 12 stones, and turn count tracker
     int stones = 12;
+    int turn = 1;
     
     // Round begins reading # of stones in the bag
     System.out.printf("There are %d stones in the bag.\n", stones);
+    System.out.println();
 
-    stones = playerTurn(stones);
-    System.out.printf("There are %d stones in the bag.\n", stones);
+    while(stones > 0){
+      System.out.printf("Turn %d\n", turn);
+      
+      // Player takes their turn first
+      stones = playerTurn(stones);
+      System.out.printf("There are %d stones in the bag.\n", stones);
+      System.out.println();
 
-    stones = computerTurn(stones);
-    System.out.printf("There are %d stones in the bag.\n", stones);
+      if (stones == 0){
+        System.out.println("Player wins!");
+        // Add break to end the while loop before the computer plays
+        break;
+      }
+      
+      // Computer takes their turn second
+      stones = computerTurn(stones);
+      System.out.printf("There are %d stones in the bag.\n", stones);
+      System.out.println();
 
+      if (stones == 0){
+        System.out.println("Computer wins!");
+      }
+
+      turn++;
+    }
 
   }
   // playerTurn: Simulates the player picking 1-3 stones from the bag
@@ -64,8 +85,16 @@ public class Nim {
   public static int computerTurn(int stones){
     System.out.println("Computer turn");
     
-    // Create an int for stonesTaken and use random to pick 1-3 stones
-    int stonesTaken = (int) Math.random()*2 + 1;
+    // Create an int for stonesTaken and initialize to 0
+    int stonesTaken = 0;
+
+    // If there are 3 or fewer stones remaining, the computer should pick that amount
+    if (stones <= 3){
+      stonesTaken = stones;
+    } else {
+      // If not, the computer picks a random number
+      stonesTaken = (int) Math.random()*2 + 1;
+    }
 
     System.out.printf("The computer took %d stones from the bag.\n", stonesTaken);
     
@@ -73,4 +102,9 @@ public class Nim {
     return stones - stonesTaken;
   }
 
+
+  // TODO: Add a "plural or not" type of method
+
+  // return (stones == 1) ? "stone" : "stones";
+  
 }

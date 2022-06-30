@@ -8,3 +8,65 @@ Steps:
 - Fill in comments
 
 ^ This is from the head of the CS department at Hunter College, a PhD
+
+-- William lecture --
+EX of the immediate if in Java:
+String someString = (x > 10000) ? "a big number!" : "a relatively small number";
+
+READ as:
+String someString = IF(x > 10000) THEN RETURN "a big number!" ELSE RETURN "a relatively small number";
+
+creating strings:
+
+String is technically a class, which is why it's capitalized
+
+1) String firstName = "Taylor";
+
+2) String lastName = new String("Grant-Knight");
+
+3) String middleName;
+  middleName = "Michael";
+
+string.length(); <- number of characters in string
+
+You cannot concatenate two characters:
+
+String ex = 'a' + 'b'; is an error
+
+String type is a container type, contains the sub-elements
+
+String dog = "heals";
+
+01234
+heals
+
+SOP(dog.charAt(2)); <- 'a'
+
+-- Java code for reverse order --
+
+int i = aString.length - 1;
+
+while (i > 0){
+  SOP (aString.charAt(i));
+  i--;
+}
+
+OR 
+
+for(int i = aString.length - 1; i > 0; i--){
+  System.out.print(aString.charAt(i));
+}
+
+** STRINGS ARE DOUBLE QUOTES, CHARACTERS ARE SINGLE QUOTES **
+
+Casting: temporary change in data type
+
+char ch = 'Z';
+SOP ( (int)ch ); <- displays 90
+
+int num = 90;
+SOP ( (char)num ); <- displays Z
+
+ASCII
+97-122 lower
+65-90 upper
