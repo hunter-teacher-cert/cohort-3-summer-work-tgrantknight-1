@@ -50,7 +50,7 @@ public class Nim {
       stonesTaken = input.nextInt();
       input.nextLine();
       if (stonesTaken > 3 || stonesTaken < 1) {
-        System.out.println("You can only remove 1-3 stones during your turn");
+        System.out.println("You can only remove 1-3 stones during your turn.");
       }
     }
     // Remove the player's stones taken from the bag and return the new bag amount
@@ -67,7 +67,7 @@ public class Nim {
     // Create an int for stonesTaken and use random to pick 1-3 stones
     int stonesTaken = (int) Math.random()*2 + 1;
 
-    System.out.printf("The computer took %d ")
+    System.out.printf("The computer took %d stones from the bag.\n", stonesTaken);
     
     // Remove the computer's stones taken from the bag and return the new bag amount
     return stones - stonesTaken;
