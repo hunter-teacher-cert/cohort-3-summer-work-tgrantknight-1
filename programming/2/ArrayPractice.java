@@ -13,9 +13,9 @@
    4. arraySum - DONE
    5. firstOccurence - DONE
    6. isSorted - DONE
-   7. findMaxValue
-   8. countOdds
-   9. flip
+   7. findMaxValue - DONE
+   8. countOdds - DONE
+   9. flip - DONE
    The stubs will have comments describing what they should do
    Levels:
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -130,8 +130,8 @@ public class ArrayPractice
         return i;
       }
     }
-    // If the data is not found, return -1
-    return -1; 
+    // Standard notation: return the array size if not found
+    return data.length; 
   }
 
 
@@ -186,9 +186,15 @@ public class ArrayPractice
      value of the largest element in the array
   */
   public static int findMaxValue( int[] data ) {
-    int m=0;  // will hold the maximum value;
+    // Initialize the max with the first value
+    int m = data[0];
 
-    /* YOUR BRILLIANT CODE HERE */
+    // Could start at i = 1 to save one comparison
+    for (int i = 0; i < data.length; i++){
+      if (data[i] > m){
+        m = data[i];
+      }
+    }
 
     return m;
   }
@@ -206,7 +212,12 @@ public class ArrayPractice
     int count=0;
 
     /* YOUR BRILLIANT CODE HERE */
-
+    for (int i = 0; i < data.length; i++){
+      if (data[i] % 2 == 1){
+        count++;
+      }
+    }
+    
     // Note the % operator is the modulo (basically remainder) function
     // in java. Use to determine if an integer is odd.
 
@@ -227,7 +238,20 @@ public class ArrayPractice
   */
   public static void flip( int[] data )
   {
-    /* YOUR BRILLIANT CODE HERE */
+    // Create a copy of the data array
+    int[] dataCopy = new int[data.length];
+    for (int i = 0; i < data.length; i++){
+      dataCopy[i] = data[i];
+    }
+
+    // j will represent the ending index and will decrease each loop
+    int j = data.length-1;
+    // Traverse the array and use the copy as the source of values
+    for (int i = 0; i < data.length; i++){
+      data[i] = dataCopy[j];
+      j--;
+    }
+    
   }
 
 
@@ -237,19 +261,29 @@ public class ArrayPractice
     // int[] data = buildRandomArray(10, 20);
     // printArray(data);
     
-    //int[] data2 = buildIncreasingArray(10,5,3);
-    //printArray(data2);
+    // int[] data2 = buildIncreasingArray(10,5,3);
+    // printArray(data2);
 
-    //int[] data3 = new int[]{1,5,2,7,5,8,5,12,19,5};
-    //System.out.println(firstOccurence(data3, 5));
+    // int[] data3 = new int[]{1,5,2,7,5,8,5,12,19,5};
+    // System.out.println(firstOccurence(data3, 5));
 
     // int[] data4 = new int[]{1,5,2};
     // System.out.println(arraySum(data4));
 
-    int[] data5 = new int[]{1,5,2,4,5};
-    int[] data6 = new int[]{1,5,6,9,10};
-    System.out.println("Should be false: " + isSorted(data5));
-    System.out.println("Should be true: " + isSorted(data6));
+    // int[] data5 = new int[]{1,5,2,4,5};
+    // int[] data6 = new int[]{1,5,6,9,10};
+    // System.out.println("Should be false: " + isSorted(data5));
+    // System.out.println("Should be true: " + isSorted(data6));
+
+    // int[] data7 = new int[]{1,5,10,4,5};
+    // System.out.println(findMaxValue(data7));
+
+    // int[] data8 = new int[]{1,5,4,7,6};
+    // System.out.println(countOdds(data8));
+
+    int[] data9 = new int[]{1,2,3,4,5};
+    flip(data9);
+    printArray(data9);
     
   }
 }

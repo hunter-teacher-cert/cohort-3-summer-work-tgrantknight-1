@@ -1,3 +1,7 @@
 7/1/22
 
 Style: Don't return or break out of a loop.
+
+When making array search functions, if the target is not found,
+return the size of the array (array.length)
+-> My instinct was to return -1, which I've seen in texts before
