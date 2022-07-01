@@ -12,7 +12,7 @@
    3. printArray - DONE
    4. arraySum - DONE
    5. firstOccurence - DONE
-   6. isSorted
+   6. isSorted - DONE
    7. findMaxValue
    8. countOdds
    9. flip
@@ -167,9 +167,15 @@ public class ArrayPractice
   */
   public static boolean isSorted( int[] data )
   {
-    /* YOUR BRILLIANT CODE HERE */
+    // Note: using data.length-1 to prevent checking beyond bounds
+    for (int i = 0; i < data.length-1; i++){
+      // if ANY pair of values are NOT in order, return false
+      if (data[i] > data[i+1]){
+        return false;
+      }
+    }
 
-    return true; // replace this
+    return true;
 
   }
 
@@ -237,8 +243,13 @@ public class ArrayPractice
     //int[] data3 = new int[]{1,5,2,7,5,8,5,12,19,5};
     //System.out.println(firstOccurence(data3, 5));
 
-    int[] data4 = new int[]{1,5,2};
-    System.out.println(arraySum(data4));
+    // int[] data4 = new int[]{1,5,2};
+    // System.out.println(arraySum(data4));
+
+    int[] data5 = new int[]{1,5,2,4,5};
+    int[] data6 = new int[]{1,5,6,9,10};
+    System.out.println("Should be false: " + isSorted(data5));
+    System.out.println("Should be true: " + isSorted(data6));
     
   }
 }
