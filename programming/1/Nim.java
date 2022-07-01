@@ -132,5 +132,4 @@ public class Nim {
       + numStonesPhrase(stones) 
       +" in the bag.\n");
   }
-  
 }

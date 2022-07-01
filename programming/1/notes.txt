@@ -70,3 +70,31 @@ SOP ( (char)num ); <- displays Z
 ASCII
 97-122 lower
 65-90 upper
+
+
+-- Afternoon lecture --
+
+Arrays use .length, not .length()
+Arrays are *mutable* which Strings are not
+
+// Declares
+int theArray[]; <- empty array
+// Initializes
+theArray[] = new int[17]; <- creates the actual array of 17 0's
+
+// Java intializes arrays with value 0 for ints, 0.0 for doubles, "" for Strings
+// The array type cannot change 
+
+int theArray[] = new int[]{55,65,70,75,85};
+
+
+when you don't know the number of values for your data, it is common to:
+
+String myFriends[] = new String[1000]; <- 1000 is the max array size
+int numOfFriends = 0; <- you should keep track of the number of elements
+
+you can't use == for strings, you have to use the string method .equals
+
+ex:
+while(! aFriend.equals("Stop") )
+
