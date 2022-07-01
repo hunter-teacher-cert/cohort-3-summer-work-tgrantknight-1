@@ -257,7 +257,9 @@ public class ArrayPractice
 
   public static void main( String[] args )
   {
-
+  
+    // Comment and uncomment as needed to test methods
+    
     // int[] data = buildRandomArray(10, 20);
     // printArray(data);
     
