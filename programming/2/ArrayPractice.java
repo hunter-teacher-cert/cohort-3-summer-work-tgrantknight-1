@@ -1,7 +1,7 @@
 /**
  * ArrayPractice by Team BossCoders
- * First Last
- * collaborators: First Last, First Last
+ * Taylor Grant-Knight
+ * collaborators: Marisa Shuman, First Last
  */
 
 /**
