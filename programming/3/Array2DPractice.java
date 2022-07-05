@@ -221,6 +221,15 @@ public class Array2DPractice
     int rows = board.length;
     int cols = board[0].length;
 
+    // Standard loop through every element:
+    for (int i = 0; i < rows; i++){
+      for (int j = 0; j < cols; j++){
+        // If the element is our target, make it boom.
+        if (board[i][j] == c){
+          board[i][j] = 'X';
+        }
+      }
+    }
     
   }
 
@@ -276,15 +285,25 @@ public class Array2DPractice
       elements
     */
     
-    printBoard(b);
-    System.out.println("");
+    // printBoard(b);
+    // System.out.println("");
     // printBoard(copyBoard(b));
     // System.out.println("");
     // setRow(b, 2, '@');
     // printBoard(b);
     // System.out.println("");
-    explodeSquare(b, 0, 0);
-    printBoard(b);
+    // explodeSquare(b, 0, 0);
+    // printBoard(b);
+
+    char[][] b2 = copyBoard(b);
+    b2[1][2] = 'a';
+    b2[2][3] = 'a';
+    b2[2][2] = 'a';
+    b2[4][4] = 'a';
+    printBoard(b2);
+    System.out.println("");
+    explodeAllChar(b2,'a');
+    printBoard(b2);
 
   }
 }
