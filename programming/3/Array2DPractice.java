@@ -272,21 +272,18 @@ public class Array2DPractice
   public static void downString( char[][] board, int row, int col, String word )
   {
     /* YOUR AWESOME CODE HERE */
-    // Use .charAt(index) to use specific character
-    // Start with rows and cols
-    int rows = board.length;
-    int cols = board[0].length;
 
     // Could check to make sure the given row and col
     // are actually in the array
 
     // Declare an ending point, which is the min of
     // either the word length or the # of rows left
-    int end = Math.min(rows - row,word.length());
+    int end = Math.min(board.length - row,word.length());
     
     // Loop through rows starting at given row and
     // using "end" as the end point
     for (int i = 0; i < end; i++){
+      // Use .charAt(index) to use specific character
       board[row + i][col] = word.charAt(i);
     }
   }
