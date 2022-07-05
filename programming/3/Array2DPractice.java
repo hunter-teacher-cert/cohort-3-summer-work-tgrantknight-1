@@ -19,7 +19,7 @@ import java.util.*;
    - printBoard * DONE
    - copyBoard * DONE
    Intermediate level (complete Basic methods plus this method):
-   - explodeSquare *
+   - explodeSquare * DONE
    Advanced level (complete Basic + Intermediate + these two methods):
    - explodeAllChar *
    - downString
@@ -32,7 +32,6 @@ import java.util.*;
    creates and returns a 2D array of size rowsxcols chars. All elements
    in the 2D array will be set to the char value.
    Ex: buildBoard(3,4,'x') will return this 2D array:
-   xxxx
    xxxx
    xxxx
    xxxx
@@ -174,6 +173,27 @@ public class Array2DPractice
   public static void explodeSquare( char[][] board, int row, int col )
   {
     /* YOUR AWESOME CODE HERE */
+    // Start by getting the rows and cols ints
+    int rows = board.length;
+    int cols = board[0].length;
+
+    // To avoid errors, we want to use if statements
+    // with ranges instead of checking for row-1, etc.
+
+    // Standard loop through each element:
+    for (int i = 0; i < rows; i++){
+      for (int j = 0; j < cols; j++){
+        // Using ifs, check if the cell is in the area
+        // and not the square itself
+        if ((row-1 <= i && i <= row+1) &&
+            (col-1 <= j && j <= col+1) &&
+            (i != row || j != col))
+        {
+            board[i][j] = 'X';
+        }
+      }
+    }
+    
   }
 
   /**
@@ -194,6 +214,14 @@ public class Array2DPractice
   public static void explodeAllChar(char[][] board, char c)
   {
     /* YOUR AWESOME CODE HERE */
+    // To be extra, could check to make sure c is not X,
+    // the explosion indicator
+
+    // Set the rows and cols
+    int rows = board.length;
+    int cols = board[0].length;
+
+    
   }
 
 
@@ -248,13 +276,15 @@ public class Array2DPractice
       elements
     */
     
-    // printBoard(b);
-    // System.out.println("");
+    printBoard(b);
+    System.out.println("");
     // printBoard(copyBoard(b));
     // System.out.println("");
     // setRow(b, 2, '@');
     // printBoard(b);
     // System.out.println("");
+    explodeSquare(b, 0, 0);
+    printBoard(b);
 
   }
 }
