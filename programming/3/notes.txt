@@ -1,0 +1,10 @@
+7/5/22 Topic: 2D Arrays
+
+Consider using integer division for arrays when you only need to use the first half (up to and not including the middle)
+
+For 2D Arrays, here is the notation for getting rows and cols:
+
+int rows = array.length; // Use i
+int cols = array[0].length; // Use j
+
+"Jagged array" means a 2D array with different col values
