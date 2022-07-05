@@ -342,19 +342,19 @@ public class Array2DPractice
     // System.out.println("");
     // setRow(b, 2, '@');
     // printBoard(b);
-    // System.out.println("");
-    // explodeSquare(b, 0, 0);
-    // printBoard(b);
-
-    char[][] b2 = copyBoard(b);
-    b2[1][2] = 'a';
-    b2[2][3] = 'a';
-    b2[2][2] = 'a';
-    b2[4][4] = 'a';
-    printBoard(b2);
     System.out.println("");
-    explodeAllChar(b2,'a');
-    printBoard(b2);
+    explodeSquare(b, 2, 1);
+    printBoard(b);
+
+    // char[][] b2 = copyBoard(b);
+    //b2[1][2] = 'a';
+    //b2[2][3] = 'a';
+    //b2[2][2] = 'a';
+    //b2[4][4] = 'a';
+   // printBoard(b2);
+    //System.out.println("");
+    //explodeAllChar(b2,'a');
+    //printBoard(b2);
 
     char[][] b3 = buildBoard(10,5,'z');
     // printBoard(b3);
