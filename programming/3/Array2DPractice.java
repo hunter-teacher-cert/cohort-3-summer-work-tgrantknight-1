@@ -21,8 +21,8 @@ import java.util.*;
    Intermediate level (complete Basic methods plus this method):
    - explodeSquare * DONE
    Advanced level (complete Basic + Intermediate + these two methods):
-   - explodeAllChar *
-   - downString
+   - explodeAllChar * DONE
+   - downString DONE
    The routines with the * will be particularly helpful for the
    Conway's Game of Life project that you'll work on after this one.
 */
@@ -272,6 +272,23 @@ public class Array2DPractice
   public static void downString( char[][] board, int row, int col, String word )
   {
     /* YOUR AWESOME CODE HERE */
+    // Use .charAt(index) to use specific character
+    // Start with rows and cols
+    int rows = board.length;
+    int cols = board[0].length;
+
+    // Could check to make sure the given row and col
+    // are actually in the array
+
+    // Declare an ending point, which is the min of
+    // either the word length or the # of rows left
+    int end = Math.min(rows - row,word.length());
+    
+    // Loop through rows starting at given row and
+    // using "end" as the end point
+    for (int i = 0; i < end; i++){
+      board[row + i][col] = word.charAt(i);
+    }
   }
 
 
@@ -300,10 +317,15 @@ public class Array2DPractice
     b2[2][3] = 'a';
     b2[2][2] = 'a';
     b2[4][4] = 'a';
-    printBoard(b2);
-    System.out.println("");
-    explodeAllChar(b2,'a');
-    printBoard(b2);
+    // printBoard(b2);
+    // System.out.println("");
+    // explodeAllChar(b2,'a');
+    // printBoard(b2);
 
+    char[][] b3 = buildBoard(10,5,'z');
+    printBoard(b3);
+    System.out.println("");
+    downString(b3,7,1,"Hello");
+    printBoard(b3);
   }
 }
