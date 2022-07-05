@@ -187,7 +187,7 @@ public class Array2DPractice
         // and not the square itself
         if ((row-1 <= i && i <= row+1) &&
             (col-1 <= j && j <= col+1) &&
-            (i != row || j != col))
+            (!(i == row && j == col)))
         {
             board[i][j] = 'X';
         }
