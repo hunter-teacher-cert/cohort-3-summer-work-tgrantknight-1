@@ -21,7 +21,7 @@ import java.util.*;
    Intermediate level (complete Basic methods plus this method):
    - explodeSquare * DONE
    Advanced level (complete Basic + Intermediate + these two methods):
-   - explodeAllChar * DONE
+   - explodeAllChar * TODO
    - downString DONE
    The routines with the * will be particularly helpful for the
    Conway's Game of Life project that you'll work on after this one.
@@ -201,7 +201,21 @@ public class Array2DPractice
      explode each square that contains the char c (using the above
      definition of exploding).
      Example:
+
      Given the array
+
+     qqzqq
+     qqqqq
+     qqqqq
+     qqqqq
+     qzqqq
+     qqqqq
+     qqqqz
+
+     ...
+     explodeAllchar(board,'z')
+     will change board to
+
      qXzXq
      qXXXq
      qqqqq
@@ -209,7 +223,7 @@ public class Array2DPractice
      XzXqq
      XXXXX
      qqqXz
-     explodeAllchar(board,'z') will change board to:
+
   */
   public static void explodeAllChar(char[][] board, char c)
   {
@@ -217,6 +231,18 @@ public class Array2DPractice
     // To be extra, could check to make sure c is not X,
     // the explosion indicator
 
+    // ISSUE 1: Version 1 of this method, I did not make a copy
+    // An issue can occur when you explode and cover a goal character
+    // To fix, you need to make a copy of your board first and use that
+    char[][] boardCopy = copyBoard(board);
+
+    // ISSUE 2: In Version 2 of this method, chars that get boomed are lost
+    // I feel like the intention is to be able to see the remaining chars
+    // at the end, so I will store the locations 
+    int[] charXList = new int[1000];
+    int[] charYList = new int[1000];
+    int charCount = 0;
+    
     // Set the rows and cols
     int rows = board.length;
     int cols = board[0].length;
@@ -225,10 +251,21 @@ public class Array2DPractice
     for (int i = 0; i < rows; i++){
       for (int j = 0; j < cols; j++){
         // If the element is our target, make it boom.
-        if (board[i][j] == c){
-          board[i][j] = 'X';
+        // Use boardCopy instead of board to make sure every char booms.
+        if (boardCopy[i][j] == c){
+          explodeSquare(board,i,j);
+
+          // Store the character location to add back in at the end.
+          charXList[charCount] = i;
+          charYList[charCount] = j;
+          charCount++;
         }
       }
+    }
+
+    // When you're done, add in all the chars that could have been boomed.
+    for (int i = 0; i < charCount; i++){
+      board[charXList[i]][charYList[i]] = c;
     }
     
   }
@@ -314,15 +351,15 @@ public class Array2DPractice
     b2[2][3] = 'a';
     b2[2][2] = 'a';
     b2[4][4] = 'a';
-    // printBoard(b2);
-    // System.out.println("");
-    // explodeAllChar(b2,'a');
-    // printBoard(b2);
+    printBoard(b2);
+    System.out.println("");
+    explodeAllChar(b2,'a');
+    printBoard(b2);
 
     char[][] b3 = buildBoard(10,5,'z');
-    printBoard(b3);
-    System.out.println("");
-    downString(b3,7,1,"Hello");
-    printBoard(b3);
+    // printBoard(b3);
+    // System.out.println("");
+    // downString(b3,7,1,"Hello");
+    // printBoard(b3);
   }
 }
