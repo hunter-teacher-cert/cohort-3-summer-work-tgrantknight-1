@@ -186,8 +186,7 @@ public class Cgol
 
   
   // Took from the Animate.java file for animation
-  public static void delay(int n)
-  {
+  public static void delay(int n){
     try {
       Thread.sleep(n);
     }
@@ -195,14 +194,50 @@ public class Cgol
   }
 
 
+  // Make the Gosper glider gun for animation!
+  // Requires 40 width
+  // Parameters: Board filled with dead cells
+  public static void gliderGun(char[][] board){
+    // Not sure how to read files, so here is the raw file:
+    String[] gliderRaw = new String[9];
+    gliderRaw[0] = "........................O";
+    gliderRaw[1] = "......................O.O";
+    gliderRaw[2] = "............OO......OO............OO";
+    gliderRaw[3] = "...........O...O....OO............OO";
+    gliderRaw[4] = "OO........O.....O...OO";
+    gliderRaw[5] = "OO........O...O.OO....O.O";
+    gliderRaw[6] = "..........O.....O.......O";
+    gliderRaw[7] = "...........O...O";
+    gliderRaw[8] = "............OO";
+
+    // Starting at the top left of the board 0,0
+    // Loop through each row, if 0 set 'X'
+    // Jagged array, so change cols each time
+    // Note: each entry is a string, not an array, so length()
+    int rows = gliderRaw.length;
+    int cols = gliderRaw[0].length(); // Change in loop
+
+    for (int i = 0; i < rows; i++){
+      cols = gliderRaw[i].length();
+      for (int j = 0; j < cols; j++){
+        if (gliderRaw[i].charAt(j) == 'O'){
+          board[i][j] = 'X';
+        }
+      }
+    }
+  }
+  
+  
+  
+
   public static void main( String[] args )
   {
     
     char[][] board;
-    board = createNewBoard(25,25);
+    board = createNewBoard(40,40);
     //breathe life into some cells:
-    createStart(board,0.25);
-    
+    // createStart(board,0.25);
+    gliderGun(board);
     
     System.out.print("\033[2J");
     for(int i = 0; i < 1000; i++){
