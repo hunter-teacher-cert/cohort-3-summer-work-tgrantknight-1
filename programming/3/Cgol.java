@@ -142,7 +142,46 @@ public class Cgol
   //generate and return a new board representing next generation
   public static char[][] generateNextBoard( char[][] board )
   {
-    return board;
+    // Start with explodeAllChars from yesterday
+    // Start with vars for current board rows and cols;
+    int rows = board.length;
+    int cols = board[0].length;
+    
+    // Create the next board template;
+    char[][] nextBoard = new char[rows][cols];
+
+    // Standard loop through every element:
+    for (int i = 0; i < rows; i++){
+      for (int j = 0; j < cols; j++){
+        // Populate the nextBoard using getNextGenCell for each cell
+        setCell(nextBoard,i,j,getNextGenCell(board,i,j));
+      }
+    }
+
+    return nextBoard;
+  }
+
+
+  // New method to randomize starting conditions
+  // Parameters:
+  // board is the board to populate
+  // double lifeChange is 0.0 to 1.0 and is the chance for it to start with X
+  public static void createStart(char[][] board, double lifeChance) {
+    // Loop through each cell like usual
+    int rows = board.length;
+    int cols = board[0].length;
+
+    // Standard loop through every element:
+    for (int i = 0; i < rows; i++){
+      for (int j = 0; j < cols; j++){
+        // Use Math.random and lifeChance to determine which to set as
+        if (lifeChance > Math.random()){
+          setCell(board,i,j,'X');
+        } else {
+          setCell(board,i,j,'-');
+        }
+      }
+    }    
   }
 
 
@@ -151,29 +190,19 @@ public class Cgol
     
     char[][] board;
     board = createNewBoard(25,25);
-    printBoard(board);
     //breathe life into some cells:
-    setCell(board, 0, 0, 'X');
-    setCell(board, 0, 1, 'X');
-    setCell(board, 1, 0, 'X');
-    System.out.println("");
-    printBoard(board);
-    System.out.println(countNeighbours(board,0,0));
-    System.out.println(getNextGenCell(board,0,0));
-    System.out.println(getNextGenCell(board,0,2));
+    createStart(board,0.2);
+    
     // TASK:
     // Once your initial version is running,
     // try out different starting configurations of living cells...
     // (Feel free to comment out the above three lines.)
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    System.out.println("Gen X:");
-    printBoard(board);
-    System.out.println("--------------------------\n\n");
-    board = generateNextBoard(board);
-    System.out.println("Gen X+1:");
-    printBoard(board);
-    System.out.println("--------------------------\n\n");
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    for(int i = 0; i < 10; i++){
+      System.out.printf("Gen %d:\n", i);
+      printBoard(board);
+      System.out.println("--------------------------\n\n");
+      board = generateNextBoard(board);
+    }
   }//end main()
 
 }//end class
