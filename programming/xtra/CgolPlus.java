@@ -19,7 +19,7 @@ import java.util.*;
    NOTA BENE:  All births and deaths occur simultaneously. Together, they constitute a single generation.
 */
 
-public class Cgol
+public class CgolPlus
 {
 
   //create, initialize, and return  empty board (all cells dead)
@@ -79,18 +79,20 @@ public class Cgol
     // Need a variable to count neighbors
     int neighborCount = 0;
 
-    // To avoid errors, we want to use if statements
-    // with ranges instead of checking for r-1, etc.
+    // Set new start and end points for the for loop
+    // to save comp time
+    int rStart = Math.max(r-1,0);
+    int rEnd = Math.min(r+1,rows);
+    int cStart = Math.max(c-1,0);
+    int cEnd = Math.max(c+1,cols);
 
     // Standard loop through each element:
-    for (int i = 0; i < rows; i++){
-      for (int j = 0; j < cols; j++){
+    // Note: a lot of wasted checks
+    for (int i = rStart; i < rEnd; i++){
+      for (int j = cStart; j < cEnd; j++){
         // Using ifs, check if the cell is in the area
         // and not the square itself
-        if ((r-1 <= i && i <= r+1) &&
-            (c-1 <= j && j <= c+1) &&
-            (!(i == r && j == c)))
-        {
+        if (!(i == r && j == c)){
           // Change from 2DArrayPractice: Instead of setting to X, count Xs
           if(board[i][j] == 'X'){
             neighborCount++;
@@ -234,11 +236,11 @@ public class Cgol
   {
     
     char[][] board;
-    board = createNewBoard(40,40);
+    board = createNewBoard(25,25);
     //breathe life into some cells:
-    // createStart(board,0.25);
+    createStart(board,0.25);
     //Note: gilderGun requires 40x40 at least
-    gliderGun(board);
+    // gliderGun(board);
     
     System.out.print("\033[2J");
     for(int i = 0; i < 1000; i++){
