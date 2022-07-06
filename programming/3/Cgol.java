@@ -165,7 +165,7 @@ public class Cgol
   // New method to randomize starting conditions
   // Parameters:
   // board is the board to populate
-  // double lifeChange is 0.0 to 1.0 and is the chance for it to start with X
+  // double lifeChance is 0.0 to 1.0 and is the chance for it to start with X
   public static void createStart(char[][] board, double lifeChance) {
     // Loop through each cell like usual
     int rows = board.length;
@@ -191,13 +191,13 @@ public class Cgol
     char[][] board;
     board = createNewBoard(25,25);
     //breathe life into some cells:
-    createStart(board,0.2);
+    createStart(board,0.25);
     
     // TASK:
     // Once your initial version is running,
     // try out different starting configurations of living cells...
     // (Feel free to comment out the above three lines.)
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 100; i++){
       System.out.printf("Gen %d:\n", i);
       printBoard(board);
       System.out.println("--------------------------\n\n");
