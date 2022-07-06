@@ -184,6 +184,16 @@ public class Cgol
     }    
   }
 
+  
+  // Took from the Animate.java file for animation
+  public static void delay(int n)
+  {
+    try {
+      Thread.sleep(n);
+    }
+    catch(InterruptedException e) {}
+  }
+
 
   public static void main( String[] args )
   {
@@ -193,15 +203,18 @@ public class Cgol
     //breathe life into some cells:
     createStart(board,0.25);
     
-    // TASK:
-    // Once your initial version is running,
-    // try out different starting configurations of living cells...
-    // (Feel free to comment out the above three lines.)
-    for(int i = 0; i < 100; i++){
+    
+    System.out.print("\033[2J");
+    for(int i = 0; i < 1000; i++){
+      //clear screen, place cursor at origin (upper left)
+      System.out.print("[0;0H\n");
+      //System.out.print("\033[1;1H");
+      
       System.out.printf("Gen %d:\n", i);
       printBoard(board);
-      System.out.println("--------------------------\n\n");
       board = generateNextBoard(board);
+      delay(100);
+      //System.out.print("\033[2J");
     }
   }//end main()
 
