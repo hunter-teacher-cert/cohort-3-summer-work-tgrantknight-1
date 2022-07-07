@@ -124,3 +124,50 @@ public class BinSearch
   }
 
 }
+
+
+
+
+
+/*
+  Code from my binary style of reverser in case I need it:
+
+    // Use .substring(start inc, end exc)
+    // Use .length()/2 (rounds down) for sections
+    // something like:
+    // reverseR(substring(0,s.length()/2)) + mid? 
+    //     + reverseR(s.length - s.length()/2, s.length())
+
+    // Are there two versions? Even and odd lengths?
+    // Even length has no middle, odd length does
+
+    // They each should have base and recursive steps
+
+    String reversedS = "";
+    
+    // odd case
+    if (s.length() % 2 == 1){
+      // Base for odd is 3 -> abc goes to cba
+      if (s.length() == 3) {
+        // Setup readable base Strings
+        String letter0 = Character.toString(s.charAt(0));
+        String letter1 = Character.toString(s.charAt(1));
+        String letter2 = Character.toString(s.charAt(2));
+        
+        reversedS = letter2 + letter1 + letter0;
+      // Recursive step -> first half + mid + last half
+      } else {
+        // Setup readable first and last halves
+        String firstHalf = s.substring(0,s.length()/2);
+        String lastHalf = s.substring(s.length()-s.length()/2, s.length());
+        String middle = Character.toString(s.charAt(s.length()/2+1));
+          
+        reversedS = reverseR(lastHalf) + middle + reverseR(firstHalf);
+      }
+      
+    // even case
+    } else {
+      // Base for even is 2
+
+    }
+*/

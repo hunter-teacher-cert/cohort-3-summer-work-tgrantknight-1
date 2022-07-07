@@ -15,6 +15,24 @@ public class Reverser
   public static String reverseR( String s )
   {
     /* YOUR SIMPLE, SMART IMPLEMENTATION HERE */
+
+    // Idea: take the charAt(0) and put it at end
+    // Base case: s.length() == 0 -> return s
+    // Recursive case: s.length() >= 1 -> reverseR(substring (1,len)) + charAt(0)
+
+    // Setup length var for readability
+    int len = s.length();
+
+    // Base case
+    if (len == 0){
+      // Done, return s
+      return s;
+    // recursive case
+    } else {
+      // Take first char, move to the end
+      return reverseR(s.substring(1,len)) + s.charAt(0);
+    }
+    
   }
 
 
