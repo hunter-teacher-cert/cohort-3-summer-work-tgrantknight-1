@@ -1,2 +1,27 @@
 7/7/22 Recursion
 
+Java constructors set default values if constructor parameters aren't present.
+
+Ex:
+
+constructor signature:
+public Grade (String id, double s, double w) {
+
+}
+
+calling it:
+Grade g = new Grade(); // <- id, s, w not needed,
+// so id defaults to "", s to 0.0, w to 0.0
+
+But you could also do;
+Grade g = new Grade("BACON", 90.0, 0.5);
+
+would also work.
+
+private class attributes means that you can't access them directly from outside of the class.
+
+So this won't work:
+private int a
+class instance called w
+
+w.a has an error.

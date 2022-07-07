@@ -22,11 +22,24 @@ public class Driver {
 
     public static void main(String[] args) {
 
-	//declare a var of appropriate type to assign an instance of Time to
-	Time t;
+    	//declare a var of appropriate type to assign an instance of Time to
+    	Time t,t2;
+    
+    	//assign var the address of a newly-apportioned Time object
+    	t = new Time(2,15,30);
+      t2 = new Time(2,15,30);
 
-	//assign var the address of a newly-apportioned Time object
-	t = new Time();
+      // Testing the toString method
+      System.out.println(t.toString());
+      System.out.println(t2.toString());
+      System.out.println(t.equals(t2));
+
+      // t.set(3,20,40);
+      // System.out.println(t.toString());
+
+      // t.add(t2);
+      // System.out.println(t.toString());      
+      
     }//end main()
 
 }//end class

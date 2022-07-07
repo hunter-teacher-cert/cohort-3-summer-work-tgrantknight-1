@@ -16,11 +16,11 @@ import java.util.*;
    an int representing a number of seconds.
    Place this file in a folder named programming/5/Time.java
    Basic level (complete all):
-   - public Time(int hrs, int mins, int secs) - constructor
-   - public void toString()
-   - public void set(int hrs, int mins, int secs)
+   - public Time(int hrs, int mins, int secs) - constructor DONE
+   - public void toString() DONE
+   - public void set(int hrs, int mins, int secs) DONE
    Intermediate level (complete Basic methods plus this method):
-   - public void add(Time other)
+   - public void add(Time other) DONE
    - public boolean isEquals(Time other)
    
    Advanced level (complete Basic + Intermediate + these two methods):
@@ -41,9 +41,9 @@ public class Time {
 
     // Constructors
     public Time(){
-	this.hours = 0;
-	this.minutes = 0;
-	this.seconds = 0;
+    	this.hours = 0;
+    	this.minutes = 0;
+    	this.seconds = 0;
 	
     }
 
@@ -56,7 +56,9 @@ public class Time {
     public Time(int hrs, int mins, int secs){
 
 	// your code here
-	
+	    hours = hrs;
+      minutes = mins;
+      seconds = secs;
     }
     
     
@@ -66,7 +68,8 @@ public class Time {
        returns a string representation of the time
     */
     public String toString(){
-	return("This should be changed to return the time in a nice form");
+      // I'm using hh:mm:ss
+	    return(hours+":"+minutes+":"+seconds);
     }
 
 
@@ -80,7 +83,9 @@ public class Time {
     public void set(int hrs, int mins, int secs){
 	// add the code to add the time represented by other
 	// to this instance.
-
+      hours = hrs;
+      minutes = mins;
+      seconds = secs;
     }
 
     
@@ -91,10 +96,30 @@ public class Time {
        modifies this instance to represent the result of adding it and
        the time other.
     */
+  // Assume 24 hour clock
     public void add(Time other){
 	// add the code to add the time represented by other
 	// to this instance.
 
+      // first, add each set of values together to make the new hours, etc.
+      hours = hours + other.hours;
+      minutes = minutes + other.minutes;
+      seconds = seconds + other.seconds;
+
+      // then, we need to check seconds overflow to add to min
+      int newMinutes = seconds/60; // integer division will get whole number
+      seconds = seconds % 60; // mod 60 will get left over seconds
+      minutes = minutes + newMinutes;
+      
+      // once seconds are done, repeat for minutes (order matters)
+      int newHours = minutes/60;
+      minutes = minutes % 60;
+      hours = hours + newHours;
+
+      // finally, check to make sure you haven't reached a new day yet
+      // We don't actually care to track that 1 extra day passed
+      hours = hours % 24;
+      
     }
 
 
@@ -106,9 +131,19 @@ public class Time {
        false otherwise.
     */
     public boolean equals(Time other){
-	// your code here)
+      // Assume both times are 24 hours and that they are written correctly
+      // i.e., seconds, minutes are 0 to 59, hours are 0 to 23
 
-	return false; // change this
+      if (
+        hours == other.hours &&
+        minutes == other.minutes &&
+        seconds == other.seconds
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+
     }
 
     /**
@@ -122,9 +157,15 @@ public class Time {
        0 if the two instances represent the same time.
     */
     public int compareTo(Time other){
-	// your code here)
+      // Assume proper 24 hour notation in proper form for both times
 
-	return 0; // change this
+      // Check hours first, then minutes, then seconds
+      if (hours > other.hours){
+        return 1; // this is greater than other, so return positive int
+      } 
+      
+
+	    return 0; // change this
     }
     
 

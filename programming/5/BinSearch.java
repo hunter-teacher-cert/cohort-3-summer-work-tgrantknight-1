@@ -9,8 +9,7 @@
    Binary search on array of ints
 */
 
-public class BinSearch
-{
+public class BinSearch {
 
   /**
      int binSearch(int[],int) -- searches an array of ints for target int
@@ -20,6 +19,8 @@ public class BinSearch
   public static int binSearch ( int[] a, int target )
   {
     //Q: Why did the designers of this class opt for 2 binSearch methods instead of 1?
+    // A: Allows you to keep using array a without making tons of
+    //    new sub copies everytime.
     //return binSearchRec( /* YOUR SMART CODE HERE */ );
     return binSearchRec( a, target, 0, a.length-1 );
   }
@@ -30,23 +31,30 @@ public class BinSearch
   {
     int tPos = -1; //init return var to flag/signal value
 
-    int mPos = (lo + hi) / 2; //init tracker var for middle position
+    int mPos = (loPos + hiPos) / 2; //init tracker var for middle position
 
     //exit case. If lo & hi have crossed, target not present
-    if ( /* YOUR SMART CODE HERE */ )
-      return /* YOUR SMART CODE HERE */ ;
-
+    if (loPos > hiPos) {
+      System.out.println("Not here");      
+      return tPos;
+    }
+    System.out.printf("a[mPos] is %d and target is %d\n", a[mPos], target);
     // target found
-    if ( /* YOUR SMART CODE HERE */ ) {
-      /* YOUR SMART CODE HERE */
+    if (a[mPos] == target) {
+      tPos = mPos;
+      System.out.println("Found");
     }
     // value at mid index higher than target
-    else if ( /* YOUR SMART CODE HERE */ ) {
-      /* YOUR SMART CODE HERE */
+    else if (a[mPos] > target) {
+      System.out.println("Checking lower");      
+      tPos = binSearchRec(a, target, loPos, mPos-1);
+      System.out.println("Done checking lower");
     }
     // value at mid index lower than target
-    else if ( /* YOUR SMART CODE HERE */ ) {
-      /* YOUR SMART CODE HERE */
+    else if (a[mPos] < target) {
+      System.out.println("Checking upper");
+      tPos = binSearchRec(a, target, mPos+1, hiPos);
+      System.out.println("Done checking upper");
     }
 
     return tPos;
@@ -87,7 +95,7 @@ public class BinSearch
   public static void main ( String[] args )
   {
     //move the bar down to uncover tests in succession...
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     System.out.println("\nNow testing binSearch on int array...");
     //Declare and initialize array of ints
     int[] iArr = { 2, 4, 6, 8, 6, 42 };
@@ -117,57 +125,9 @@ public class BinSearch
     System.out.println( binSearch(iArr3,5) );
     //search for 43 in array
     System.out.println( binSearch(iArr3,43) );
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     /* YOUR SMART CODE HERE :: Feel free to add extra tests...*/
 
   }
 
 }
-
-
-
-
-
-/*
-  Code from my binary style of reverser in case I need it:
-
-    // Use .substring(start inc, end exc)
-    // Use .length()/2 (rounds down) for sections
-    // something like:
-    // reverseR(substring(0,s.length()/2)) + mid? 
-    //     + reverseR(s.length - s.length()/2, s.length())
-
-    // Are there two versions? Even and odd lengths?
-    // Even length has no middle, odd length does
-
-    // They each should have base and recursive steps
-
-    String reversedS = "";
-    
-    // odd case
-    if (s.length() % 2 == 1){
-      // Base for odd is 3 -> abc goes to cba
-      if (s.length() == 3) {
-        // Setup readable base Strings
-        String letter0 = Character.toString(s.charAt(0));
-        String letter1 = Character.toString(s.charAt(1));
-        String letter2 = Character.toString(s.charAt(2));
-        
-        reversedS = letter2 + letter1 + letter0;
-      // Recursive step -> first half + mid + last half
-      } else {
-        // Setup readable first and last halves
-        String firstHalf = s.substring(0,s.length()/2);
-        String lastHalf = s.substring(s.length()-s.length()/2, s.length());
-        String middle = Character.toString(s.charAt(s.length()/2+1));
-          
-        reversedS = reverseR(lastHalf) + middle + reverseR(firstHalf);
-      }
-      
-    // even case
-    } else {
-      // Base for even is 2
-
-    }
-*/
