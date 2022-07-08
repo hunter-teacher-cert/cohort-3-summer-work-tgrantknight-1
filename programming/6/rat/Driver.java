@@ -19,19 +19,20 @@ public class Driver
     System.out.println("r: " + r );
     System.out.println("s: " +  s );
     System.out.println("t: " +  t );
-    /*~~~~~v~~~~~~~~~~down~goer~3~~~~~~~~~~~~~v~~~~~  
     System.out.println( r + " as a floating pt approximation: "
     + r.floatValue() );
     System.out.println( s + " as a floating pt approximation: "
     + s.floatValue() );
     System.out.println( t + " as a floating pt approximation: "
     + t.floatValue() );
+        
     System.out.print( r + " * " + t + " = ");
     r.multiply(t);
     System.out.println(r);
     System.out.print( r + " / " + t + " = ");
     r.divide(t);
     System.out.println(r);
+    /*~~~~~v~~~~~~~~~~down~goer~3~~~~~~~~~~~~~v~~~~~  
     ~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~*/
   }
 

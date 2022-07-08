@@ -70,8 +70,8 @@ public class Rational
   // uses the most precise floating point primitive
   public double floatValue()
   {
-    /* YOUR ELEGANT CODE HERE */
-    return 0.0;
+    // Use * 1.0 to convert one of the vars to double before dividing.
+    return (_numerator * 1.0) / (_denominator);
   }
 
 
@@ -83,7 +83,9 @@ public class Rational
   // need not reduce
   public void multiply( Rational r )
   {
-    /* YOUR ELEGANT CODE HERE */
+    // Multiplying fractions means multiply nums and multiply denoms
+    _numerator = _numerator * r._numerator;
+    _denominator = _denominator * r._denominator;
   }
 
 
@@ -91,7 +93,14 @@ public class Rational
   // same as multiply, except operation is division
   public void divide( Rational r )
   {
-    /* YOUR ELEGANT CODE HERE */
+    // Dividing fractions means multiplying num with r.den and vice versa
+    if (r._numerator == 0){
+      System.out.println("You cannot divide by 0.\nValue unchanged.")
+    } else {   
+      _numerator = _numerator * r._denominator;
+      _denominator = _denominator * r._numerator; 
+    }
+
   }
 
 }//end class
