@@ -21,10 +21,10 @@ import java.util.*;
    - public void set(int hrs, int mins, int secs) DONE
    Intermediate level (complete Basic methods plus this method):
    - public void add(Time other) DONE
-   - public boolean isEquals(Time other)
+   - public boolean isEquals(Time other) DONE
    
    Advanced level (complete Basic + Intermediate + these two methods):
-   - public int compareTo(Time other)
+   - public int compareTo(Time other) DONE
    
 */
 
@@ -69,7 +69,23 @@ public class Time {
     */
     public String toString(){
       // I'm using hh:mm:ss
-	    return(hours+":"+minutes+":"+seconds);
+      // Extra: Fix so it always shows 2 digits
+      String hrs = "" + hours;
+      String mins = "" + minutes;
+      String secs = "" + seconds;
+
+      // Add any missing 2nd digit:
+      if (hours < 10) {
+        hrs = "0" + hours;
+      }
+      if (minutes < 10) {
+        mins = "0" + minutes;
+      }
+      if (seconds < 10) {
+        secs = "0" + seconds;
+      }
+      
+	    return(hrs+":"+mins+":"+secs);
     }
 
 
@@ -157,15 +173,32 @@ public class Time {
        0 if the two instances represent the same time.
     */
     public int compareTo(Time other){
-      // Assume proper 24 hour notation in proper form for both times
-
+      // Assume proper 24 hour notation in proper form for both times      
+      int comparison = 0; // Store comparison to return
       // Check hours first, then minutes, then seconds
       if (hours > other.hours){
-        return 1; // this is greater than other, so return positive int
+        comparison = 1; // this is greater than other, so return positive int
+      } else if (other.hours > hours){
+        comparison = -1;
+      } else {
+        // hour == other.hour, so repeat logic for minutes
+        if (minutes > other.minutes){
+          comparison = 1;
+        } else if (other.minutes > minutes){
+          comparison = -1;
+        } else {
+          // minutes == other.minutes, repeat logic
+          if (seconds > other.seconds){
+            comparison = 1;
+          } else if (other.seconds > seconds){
+            comparison = -1;
+          } else {
+            comparison = 0;
+          }
+        } 
       } 
+      return comparison;
       
-
-	    return 0; // change this
     }
     
 

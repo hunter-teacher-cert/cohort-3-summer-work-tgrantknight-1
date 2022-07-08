@@ -32,13 +32,19 @@ public class Driver {
       // Testing the toString method
       System.out.println(t.toString());
       System.out.println(t2.toString());
-      System.out.println(t.equals(t2));
+      System.out.println(t.compareTo(t2));
 
-      // t.set(3,20,40);
-      // System.out.println(t.toString());
+      t.set(3,0,0);
+      t2.set(2,50,0);
+      System.out.println(t.toString());
+      System.out.println(t2.toString());
+      System.out.println(t.compareTo(t2));
 
-      // t.add(t2);
-      // System.out.println(t.toString());      
+      t.set(0,49,59);
+      t2.set(0,50,0);
+      System.out.println(t.toString());
+      System.out.println(t2.toString());
+      System.out.println(t.compareTo(t2));
       
     }//end main()
 

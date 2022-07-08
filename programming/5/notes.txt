@@ -25,3 +25,5 @@ private int a
 class instance called w
 
 w.a has an error.
+
+"Signature" first line of the method
