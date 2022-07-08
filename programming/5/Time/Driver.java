@@ -30,20 +30,20 @@ public class Driver {
       t2 = new Time(2,15,30);
 
       // Testing the toString method
-      System.out.println(t.toString());
-      System.out.println(t2.toString());
+      System.out.println(t);
+      System.out.println(t2);
       System.out.println(t.compareTo(t2));
 
       t.set(3,0,0);
       t2.set(2,50,0);
-      System.out.println(t.toString());
-      System.out.println(t2.toString());
+      System.out.println(t);
+      System.out.println(t2);
       System.out.println(t.compareTo(t2));
 
       t.set(0,49,59);
       t2.set(0,50,0);
-      System.out.println(t.toString());
-      System.out.println(t2.toString());
+      System.out.println(t);
+      System.out.println(t2);
       System.out.println(t.compareTo(t2));
       
     }//end main()

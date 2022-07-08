@@ -60,7 +60,7 @@ public class Rational
   public String toString()
   {
     // Options: n:d, n/d, or as a floating point value
-    return _numerator + "/" _denominator;
+    return _numerator + "/" + _denominator;
     
   }
 
@@ -71,6 +71,7 @@ public class Rational
   public double floatValue()
   {
     /* YOUR ELEGANT CODE HERE */
+    return 0.0;
   }
 
 
