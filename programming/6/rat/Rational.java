@@ -95,7 +95,7 @@ public class Rational
   {
     // Dividing fractions means multiplying num with r.den and vice versa
     if (r._numerator == 0){
-      System.out.println("You cannot divide by 0.\nValue unchanged.")
+      System.out.println("You cannot divide by 0.\nValue unchanged.");
     } else {   
       _numerator = _numerator * r._denominator;
       _denominator = _denominator * r._numerator; 

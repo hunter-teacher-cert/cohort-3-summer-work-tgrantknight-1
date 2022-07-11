@@ -234,11 +234,11 @@ public class Cgol
   {
     
     char[][] board;
-    board = createNewBoard(40,40);
+    board = createNewBoard(25,25);
     //breathe life into some cells:
-    // createStart(board,0.25);
+    createStart(board,0.25);
     //Note: gilderGun requires 40x40 at least
-    gliderGun(board);
+    // gliderGun(board);
     
     System.out.print("\033[2J");
     for(int i = 0; i < 1000; i++){
@@ -249,7 +249,7 @@ public class Cgol
       System.out.printf("Gen %d:\n", i);
       printBoard(board);
       board = generateNextBoard(board);
-      delay(100);
+      delay(1000);
       //System.out.print("\033[2J");
     }
   }//end main()

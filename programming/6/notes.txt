@@ -1,3 +1,7 @@
 7/8/22 class practice
 
 _numerator <- the _ indicates an instance variable
+
+"Encapsulation"
+SuperArray
+A class that includes the array itself and its properties
