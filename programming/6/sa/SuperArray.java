@@ -137,6 +137,7 @@ public class SuperArray
     for (int i = index; i < numberElements-1; i++){
       data[i] = data[i+1];
     }
+    
     // subtract fom numElements;
     /* YOUR SIMPLE+SMART CODE HERE */
     numberElements--;

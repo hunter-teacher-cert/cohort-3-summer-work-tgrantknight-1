@@ -1,2 +1,2 @@
 language = "bash"
-run = "cd programming/6/sa; javac *.java; java SuperArrayDriver"
+run = "cd ds/arraylists; javac *.java; java AlPractice"

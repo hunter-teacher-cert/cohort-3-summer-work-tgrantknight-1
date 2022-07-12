@@ -1,0 +1,15 @@
+7/12/22
+
+ArrayList<type> is the data structure I saw on AP CS A problems
+- this has methods like .add() already built in
+
+ArrayList<String> words = new ArrayList<String>(); // can do (3) for length 3
+.add(String value) -> adds a string to the end of the ArrayList
+.add(int index, String value) -> inserts value into index and shift everything right
+.set(int index, String value) -> replaces the index with the value
+.size() -> number of elements in ArrayList
+
+*** Everything you put into an ArrayList has to be an object
+
+so CANNOT: ArrayList<int>, INSTEAD: ArrayList<Integer>
+Integer is the wrapper class for int
