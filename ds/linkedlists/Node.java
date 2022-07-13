@@ -12,9 +12,7 @@ public class Node{
   public Node(String data){
     this.data = data;
     this.next = null;
-
   }
-
 
   public Node(String data, Node next){
     this.data = data;

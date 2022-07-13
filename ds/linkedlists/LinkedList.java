@@ -7,8 +7,8 @@ import java.util.*;
    
    Basic
    -----
-   add(string value)
-   get(int index);
+   add(string value) DONE
+   get(int index); DONE
    indexOf(String value);
    
    
@@ -25,8 +25,14 @@ import java.util.*;
    
 */
 
+// Personal check-in:
+// Nodes are simple objects, they have (1) String data and (2) Node next
+// For linked lists, you start with a head Node
+
+
 public class LinkedList{
 
+  // So linked lists start with a head attribute to define them
   private Node head;
 
 
@@ -41,7 +47,8 @@ public class LinkedList{
   Adds a new node containing value to the front of the list.
   */
   public void add(String value){
-
+    // There's no next Node, so we use the single String param constructor
+    Node nextVal = new Node(value);
   }
 
   /**
@@ -68,7 +75,19 @@ public class LinkedList{
   /**
   Returns the String in the node at location index.
   */
-  public void get(int index){
+  public String get(int index){
+    // Replace currentNode as we go through the list
+    Node currentNode = head;
+    String currentData = currentNode.getData();
+    // we'll be using .next(), which produces the String at i+1
+    // So i < index should actually work
+    for (int i = 0; i < index; i++){
+      currentNode = currentNode.getNext();
+      currentData = currentNode.getData();
+    }
+
+    return currentData;
+    
   }
 
   /**
@@ -108,7 +127,17 @@ public class LinkedList{
   Return a string representation of the list
   */
   public String toString(){
-    return "";
+    // Use the existing toString Node method
+    // Keep repeating while .getNext() != null
+    String visual = head.toString();
+    Node currentNode = head;
+
+    while (currentNode != null){
+      currentNode = currentNode.getNext();
+      visual += currentNode.toString();
+    }
+    
+    return visual;
   }
 
 

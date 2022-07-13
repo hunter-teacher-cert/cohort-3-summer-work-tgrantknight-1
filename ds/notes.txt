@@ -20,4 +20,5 @@ Term "idiom" for the common coding blocks
 like the traversal code, or the swapping elements code
 
 Linked lists: elements know themselves and who is after
-Still 
+
+"Reference type" -> not a primitive type, stores a reference to an object
