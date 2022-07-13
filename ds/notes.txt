@@ -13,3 +13,11 @@ ArrayList<String> words = new ArrayList<String>(); // can do (3) for length 3
 
 so CANNOT: ArrayList<int>, INSTEAD: ArrayList<Integer>
 Integer is the wrapper class for int
+
+
+7/13/22
+Term "idiom" for the common coding blocks
+like the traversal code, or the swapping elements code
+
+Linked lists: elements know themselves and who is after
+Still 

@@ -12,7 +12,7 @@ public static void swapElements(ArrayList<Integer> dataList, int indexA,int inde
 public static void removeValue(ArrayList<Integer> dataList, int valueToRemove) DONE
 Challenge level:
 -------------------
-public static ArrayList<Integer> sumLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB)
+public static ArrayList<Integer> sumLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB) DONE
 public static ArrayList<Integer> zipLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB)
 */
 
@@ -112,7 +112,15 @@ public class AlPractice{
   - The parameter ArrayLists should not be modified.
   */
   public static ArrayList<Integer> sumLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB){
-    return null;//placeholder to compile.
+    // Same length, just loop through
+    // Use the get and add methods
+    ArrayList<Integer> sumList = new ArrayList<Integer>(ListA.size());
+
+    for (int i = 0; i < ListA.size(); i++){
+      sumList.add(ListA.get(i) + ListB.get(i));
+    }
+
+    return sumList;//placeholder to compile.
   }
 
   /** zipLists
@@ -126,7 +134,35 @@ public class AlPractice{
   - The parameter ArrayLists should not be modified.
   */
   public static ArrayList<Integer> zipLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB){
-    return null;//placeholder to compile.
+    // Determine which list is smaller using min
+    int minSize = Math.min(ListA.size(),ListB.size());
+    // New combinedList has size of the sum of both lists
+    ArrayList<Integer> combinedList = 
+      new ArrayList<Integer>(ListA.size() + ListB.size());
+
+    // Use alternating style, could use the evens for ListA, odds for ListB
+    // Use minSize * 2 since we're alternating
+    for (int i = 0; i < minSize * 2; i++){
+      if (i % 2 == 0){
+        combinedList.add(ListA.get(i/2)); // i/2 uses floor
+      } else{
+        combinedList.add(ListB.get(i/2));
+      }
+    }
+
+    // Now check if either list has remaining elements:
+    if (ListA.size() > minSize) {
+      for (int i = minSize; i < ListA.size(); i++){
+        combinedList.add(ListA.get(i));
+      }
+    } else {
+      // Even if both are the same, this for loop would just never run
+      for (int i = minSize; i < ListB.size(); i++){
+        combinedList.add(ListB.get(i));
+      }
+    }
+    
+    return combinedList;//placeholder to compile.
   }
 
 
@@ -136,6 +172,7 @@ public class AlPractice{
 
     ArrayList<Integer> al;
 
+    /*
     // Uncomment these to test buildRandomList
     al = buildRandomList(10,100);
     System.out.println(al);
@@ -155,6 +192,14 @@ public class AlPractice{
     System.out.println(al);
     removeValue(al,5);
     System.out.println(al);
+    */
+
+    ArrayList<Integer> al2 = buildRandomList(5,20);
+    ArrayList<Integer> al3 = buildRandomList(7,20);
+    System.out.println(al2);
+    System.out.println(al3);
+    // System.out.println(sumLists(al2,al3));
+    System.out.println(zipLists(al2,al3));
 
   }
 
