@@ -13,7 +13,7 @@ public static void removeValue(ArrayList<Integer> dataList, int valueToRemove) D
 Challenge level:
 -------------------
 public static ArrayList<Integer> sumLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB) DONE
-public static ArrayList<Integer> zipLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB)
+public static ArrayList<Integer> zipLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB) DONE
 */
 
 

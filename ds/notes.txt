@@ -22,3 +22,60 @@ like the traversal code, or the swapping elements code
 Linked lists: elements know themselves and who is after
 
 "Reference type" -> not a primitive type, stores a reference to an object
+
+Pointers point to memory block at the time of running, changing the where the pointer points later does NOT change it retroactively
+
+Ex:
+Node n1 = new Node(5);
+Node n2 = new Node(10);
+n1.setNext(n2);
+n2.setNext(new Node(15));
+n2 = new Node(20);
+// HERE: n1.getNext().getData() is 10 NOT 20
+// SO n1 is still pointing to the old n2 memory spot
+// you would have to add n1.setNext(n2) again
+Node n3 = new Node(25,n2);
+
+n2.setNext(n1);
+n1=n3;
+// Next node after n2 STILL POINTS TO THE OLD n1
+// Even though n1 is now the same node as n3
+
+
+Part 3:
+p--+
+   |
+   v
+  +-----+-----+        +-----+-----+    +-----+-----+     +-----+-----+ 
+  | 5   |     |------->| 10  |     |--->| 15  |     |---->| 20  |     | 
+  |     |     |        |     |     |    |     |     |     |     |     | 
+  +-----+-----+        +-----+-----+    +-----+-----+     +-----+-----+ 
+
+// Node newNode = new Node();
+// two options: Node(int) or Node(int, nextNode)
+// .getNext(), .setNext(node)
+
+1) Create a new Node variable set it to point to the node with the 10 in it. 
+Node n1 = p.getNext();
+
+2) Create a new Node variable and instantiate it to a new Node with a value of 30.
+Node n2 = new Node(30);                                                       n2
+                                                                            +-----+-----+
+                                                                            |  30 |     |
+                                                                            |     |     |
+                                                                            +-----+-----+
+p--+                    n1--+
+   |                        |
+   v                        v
+  +-----+-----+        +-----+-----+    +-----+-----+     +-----+-----+ 
+  | 5   |     |------->| 10  |     |--->| 15  |     |---->| 20  |     | 
+  |     |     |        |     |     |    |     |     |     |     |     | 
+  +-----+-----+        +-----+-----+    +-----+-----+     +-----+-----+ 
+
+3) Write the code to insert this new Node between the 10 and the 15
+n2.setNext(n1.getNext()); //set n2's 'next' box to the node with 15
+n1.setNext(n2); //points n1 to n2 instead of node with 15
+
+while(n.getNext() != null){
+  n = n.getNext();
+}

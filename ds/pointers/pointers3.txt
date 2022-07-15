@@ -1,0 +1,21 @@
+Part 3:
+p--+
+   |
+   v
+  +-----+-----+        +-----+-----+    +-----+-----+     +-----+-----+ 
+  | 5   |     |------->| 10  |     |--->| 15  |     |---->| 20  |     | 
+  |     |     |        |     |     |    |     |     |     |     |     | 
+  +-----+-----+        +-----+-----+    +-----+-----+     +-----+-----+ 
+
+// Node newNode = new Node();
+// two options: Node(String) or Node(String, nextNode)
+
+1) Create a new Node variable set it to point to the node with the 10 in it.
+Node n1 = new Node("", p.getNext().getNext());
+
+2) Create a new Node variable and instantiate it to a new Node with a value of 30.
+Node n2 = new Node("30"); // No next version
+
+3) Write the code to insert this new Node between the 10 and the 15
+n2.setNext(n1.getNext());
+n1.getNext().setNext(n2);
