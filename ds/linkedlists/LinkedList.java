@@ -6,18 +6,18 @@ For all attempted methods, make sensible decisions for error and
 edge cases (such as indexing out of bounds).
 Basic
 -----
-add(string value)
-get(int index);
-toString()
+add(string value) DONE
+get(int index); DONE
+toString() DONE
 Intermediate (at least add, size + one of the other two)
 ------------
-size()
-add(int index,String value)
-indexOf(String value);
-toArray()
+size() DONE
+add(int index,String value) DONE
+indexOf(String value); DONE
+toArray() DONE
 Challenge
 --------
-remove(int index);
+remove(int index); DONE
 */
 
 public class LinkedList{
@@ -34,28 +34,48 @@ public class LinkedList{
   Adds a new node containing value to the front of the list.
   */
   public void add(String value){
-
+    head = new Node(value, head);
   }
 
   /**
   Returns the String in the node at location index.
   */
   public String get(int index){
-    return "";
+    Node walker = head;
+    // Loop shifts over if not yet at the index
+    for (int i = 0; i < index; i++){
+      if (walker == null){
+        return "";
+      }
+      walker = walker.getNext();
+    }
+    return walker.getData();
   }
 
   /**
   Return a string representation of the list
   */
   public String toString(){
-    return "";
+    String output = "";
+    Node walker = head;
+    while (walker != null){
+      output += walker;
+      walker = walker.getNext();
+    }
+    return output;
   }
 
   /**
   returns the number of elements in the list
   */
   public int size(){
-    return 0;
+    int count = 0;
+    Node walker = head;
+    while (walker != null){
+      count++;
+      walker = walker.getNext();
+    }
+    return count;
   }
 
 
@@ -72,7 +92,20 @@ public class LinkedList{
   "a"-> "z" -> "b" -> "c" -> "d"
   */
   public void add(int index, String value){
-
+    // If in position 0, just call the other add method
+    if (index == 0){
+      add(value);
+    } else {
+      Node walker = head;
+      // We need to start at the index right before we insert
+      for (int i = 0; i < index-1; i++){
+        walker = walker.getNext();
+      }
+  
+      Node insertedNode = new Node(value);
+      insertedNode.setNext(walker.getNext());
+      walker.setNext(insertedNode);      
+    }
   }
 
 
@@ -85,7 +118,16 @@ public class LinkedList{
   indexOf("d") would return 3 since "d" is at location 3.
   */
   public int indexOf(String value){
-    return 0;
+    Node walker = head;
+    int index = 0;
+    while (walker != null){
+      if (walker.getData() == value){
+        return index;
+      }
+      walker = walker.getNext();
+      index++;
+    }    
+    return -1;
   }
 
 
@@ -96,7 +138,15 @@ public class LinkedList{
   the array.
   */
   public String[] toArray(){
-    return null;
+    String[] arrayForm = new String[size()];
+    Node walker = head;
+    int index = 0;
+    while (walker != null){
+      arrayForm[index] = walker.getData();
+      walker = walker.getNext();
+      index++;
+    }       
+    return arrayForm;
   }
 
 
@@ -111,5 +161,15 @@ public class LinkedList{
   "a"->"b"->"d"->"e"
   */
   public void remove(int index){
+    // Should just need to point b to d
+    Node walker = head;
+    // Assume index < size. 
+    // You can add a big IF using size method
+    // Move to ONE BEFORE the index to remove
+    for (int i = 0; i < index-1; i++){
+      walker = walker.getNext();
+    }
+    walker.setNext(walker.getNext().getNext());
+      
   }
 }

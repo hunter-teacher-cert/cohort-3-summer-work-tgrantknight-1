@@ -21,6 +21,8 @@ public class Node{
     this.next = next;
   }
 
+  // Getters
+  
   public String getData(){
     return data;
   }
@@ -28,15 +30,19 @@ public class Node{
     return next;
   }
 
+  // Setters
+  
   public void setData(String data){
     this.data = data;
   }
-
-  public void setNext(Node next){
-    this.next = next;
     
+    public void setNext(Node next){
+	this.next = next;
   }
 
+  
+  // toString
+  
   public String toString(){
     return "" + data + "->";
   }
