@@ -1,0 +1,27 @@
+// Working test version in lessonDemo.java
+// Code to comment:
+
+// PROVIDE: method header for findMax
+// S-P: Ask what do you think this method:
+// 1) Takes as input
+// 2) Produces as output
+
+public static int findMax(int[] nums){
+
+  // S-P: Why do we start max at nums[0]? Why not max = 0?
+  int max = nums[0];
+  int max = nums; // deliberate error
+
+  // MISCONCEPTION: i < nums.length? i < nums.length - 1?
+  for (int i = 0; i < nums.length; i++){
+    if(max < nums[i]){
+      // ERROR: 
+      // nums[i] = max;
+      max = nums[i];
+    }
+  }
+  return max;
+}
+
+Questions for after: (or good extension question)
+// S-P: How could we change this method to return the MIN?
