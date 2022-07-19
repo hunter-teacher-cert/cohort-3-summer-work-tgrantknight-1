@@ -1,0 +1,56 @@
+First Last
+Team Crazy8's :: Taylor Grant-Knight, Christine Marra, Kirk Martin, Dave Ciolino-Volano
+Methods - Summer 2022
+
+CODE TRACING in the classroom
+======================================
+
+
+PROS:
+---------------------------------------
+<general positive aspects of incorporating code or algorithm tracing into a CS course, from your perspective>
+1. Code tracing allows students to visualize computational processes that might be otherwise hidden or difficult to conceputalize.
+
+2.Shows the logical steps of how the program operates and how the order of the steps as the program is running.
+
+3. Allows for multiple avenues of scaffolding and differentiation that might not be visiable during actual programming. 
+
+CONS:
+---------------------------------------
+<general negative aspects of incorporating code or algorithm tracing into a CS course, from your perspective>
+1. If not exectued well, students might get discouraged and shut down. 
+
+BEST FOR:
+---------------------------------------
+<types of activities from courses you teach or have taught that could benefit from an emphasis on tracing>
+1. Testing short iterations.
+2. Refering back to stored variables in complex code.
+
+LEAST-SUITED TO:
+---------------------------------------
+<opposite of above -- and why>
+1. Possibly younger students who might not fully understand the rational for trace diagrams.
+2. Complex problems for populations that are struggling or easily overwhelmed. 
+
+PROVEN PRO-TIPS:
+---------------------------------------
+<
+ anything that has worked well for any member of your team, in the way of ...
+ * live tracing ("trace-along" a la livecoding)
+ * tracing as an assignment
+ * tools, physical/online/otherwise that make it easier/clearer
+ * etc 
+>
+1. Multiple color markers / ink / text.
+2. Group-editable documents. 
+3. Organized writing / set up of the stack diagram.
+4. Pre-made sheets / diagrams. 
+
+//RESOURCES:
+---------------------------------------
+https://www.youtube.com/watch?v=SYtUZgq7zCo
+
+
+//OTHER:
+---------------------------------------
+< anything you like, not already covered in prior prompts. >

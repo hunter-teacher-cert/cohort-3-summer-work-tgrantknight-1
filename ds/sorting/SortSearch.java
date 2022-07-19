@@ -30,26 +30,26 @@ public class SortSearch{
 
     
     public SortSearch(){
-	data = new ArrayList<Integer>();
-	r = new Random();
-	for (int i=0;i<15;i++){
-	    data.add(r.nextInt(20));
-	}
+      data = new ArrayList<Integer>();
+      r = new Random();
+      for (int i=0;i<15;i++){
+          data.add(r.nextInt(20));
+      }
 	
     }
     
     public SortSearch(int size){
-	data = new ArrayList<Integer>();
-	r = new Random();
-	for (int i=0;i<size;i++){
-	    data.add(r.nextInt(20));
-	}
+    	data = new ArrayList<Integer>();
+    	r = new Random();
+    	for (int i=0;i<size;i++){
+    	    data.add(r.nextInt(20));
+    	}
 	
     }
 
     /* Convenience function to get data out of the ArrayList from the driver */
     public int get(int index){
-	return this.data.get(index);
+    	return this.data.get(index);
     }
     
 
@@ -69,9 +69,15 @@ public class SortSearch{
       
     */
     public int findSmallestIndex(int start){
-	int smallIndex = start;
-	
-	return smallIndex;
+    	int smallIndex = start;
+
+      for (int i = start; i < data.length; i++){
+        if (data[smallIndex] > data[i]){
+          smallIndex = i;
+        }
+      }
+      
+    	return smallIndex;
     }
 
 
@@ -105,7 +111,7 @@ public class SortSearch{
     public int linearSearch(int value){
 	
 	
-	return 0; // replace this return
+    	return 0; // replace this return
     }
     
     /**
@@ -120,7 +126,7 @@ public class SortSearch{
 	//   if the item is at data.get(middle), return middle
 	//   otherwise, update high, low, and middle
 
-	return 0;
+    	return 0;
 	    
     }
     
@@ -134,18 +140,18 @@ public class SortSearch{
 
 	// refer to class discussion
 	
-	return 0;
+    	return 0;
 	    
     }
     
 	
     public String toString(){
-	return ""+data;
+    	return ""+data;
     };
 
 
     public void builtinSort(){
-	Collections.sort(data);
+    	Collections.sort(data);
 	
     }
     
