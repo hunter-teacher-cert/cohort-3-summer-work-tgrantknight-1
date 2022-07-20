@@ -4,12 +4,12 @@ import java.util.*;
 /*
 Sort Project:
 Part 1:  (BASIC)
-  1. Analyze the two constructors - try to figure out how they work.
-  2. Compile and run the program (SortProjectDriver.java and SortProject.java) and confirm
+  1. Analyze the two constructors - try to figure out how they work. DONE
+  2. Compile and run the program (SortProjectDriver.java and SortProject.java) and confirm DONE
   the behavior of the constructors.
   Part 2: (BASIC)
-  1. Read the description of findSmallestIndex and complete the method.
-  2. Uncomment the lines in SortProjectDriver to test.
+  1. Read the description of findSmallestIndex and complete the method. DONE
+  2. Uncomment the lines in SortProjectDriver to test. DONE
   Part 3: (INTERMEDIATE)
   1. Complete the sort method - read comments for description
   2. Uncomment the lines in sortProjectDriver to test.
@@ -71,8 +71,8 @@ public class SortSearch{
     public int findSmallestIndex(int start){
     	int smallIndex = start;
 
-      for (int i = start; i < data.length; i++){
-        if (data[smallIndex] > data[i]){
+      for (int i = start; i < data.size(); i++){
+        if (data.get(smallIndex) > data.get(i)){
           smallIndex = i;
         }
       }
@@ -93,7 +93,7 @@ public class SortSearch{
        
     */
     public void sort(){
-
+      
 
     }
 
