@@ -11,11 +11,11 @@ Part 1:  (BASIC)
   1. Read the description of findSmallestIndex and complete the method. DONE
   2. Uncomment the lines in SortProjectDriver to test. DONE
   Part 3: (INTERMEDIATE)
-  1. Complete the sort method - read comments for description
-  2. Uncomment the lines in sortProjectDriver to test.
+  1. Complete the sort method - read comments for description DONE
+  2. Uncomment the lines in sortProjectDriver to test. DONE
 Search Project:
-  1. Complete the linear search (BASIC)
-  2. Complete the binary search (Intermediate)
+  1. Complete the linear search (BASIC) DONE
+  2. Complete the binary search (Intermediate) DONE
   3. Complete the recursive version of binary search (Advanced)
 */
 
@@ -93,7 +93,17 @@ public class SortSearch{
        
     */
     public void sort(){
-      
+      // One loop through:
+      // Find smallest index
+      // Swap to position i (starts at 0)
+      for (int i = 0; i < data.size(); i++){
+        int smallIndex = findSmallestIndex(i);
+        int temp;
+        
+        temp = data.get(i);
+        data.set(i,data.get(smallIndex));
+        data.set(smallIndex,temp);
+      }
 
     }
 
@@ -109,9 +119,16 @@ public class SortSearch{
        This algorithm works on any ArrayList.
     */
     public int linearSearch(int value){
+	    // Begin at -1 for the not found case
+      int target = -1;
+
+      for (int i = 0; i < data.size(); i++){
+        if (data.get(i) == value){
+          target = i;
+        }
+      }
 	
-	
-    	return 0; // replace this return
+    	return target; // replace this return
     }
     
     /**
@@ -120,13 +137,33 @@ public class SortSearch{
        This algorithm only works on sorted ArrayLists.
     */
     public int binarySearch(int value){
-
 	// create assign variables  representing the high, low and middle indices 
+      int lowIndex = 0;
+      int highIndex = data.size()-1;
+      int midIndex = data.size()/2;
+      
 	// while we're not done:
 	//   if the item is at data.get(middle), return middle
 	//   otherwise, update high, low, and middle
 
-    	return 0;
+      while ((lowIndex <= midIndex) && (midIndex <= highIndex)) {
+        int midValue = data.get(midIndex);
+        // Middle case
+        if (midValue == value){
+          return midIndex;
+        // Upper case
+        } else if (midValue < value){
+          lowIndex = midIndex + 1;
+          midIndex = (lowIndex + highIndex)/2;
+        // Lower case
+        } else {
+          highIndex = midIndex - 1;
+          midIndex = (highIndex + midIndex)/2;
+        }
+      }
+
+      // Only gets here if value not found
+    	return -1;
 	    
     }
     
@@ -137,11 +174,23 @@ public class SortSearch{
     */
 
     public int binarySearchRecursive(int value, int lowIndex, int highIndex){
+      // Assume precon sorted, could continuously sort but that is a waste.
+      int midIndex = (highIndex + lowIndex)/2;
 
-	// refer to class discussion
-	
-    	return 0;
-	    
+      // Base case 1: midIndex < lowIndex || highIndex > midIndex
+      if (midIndex < lowIndex || highIndex < midIndex){
+        return -1;
+      // Base case 2: midValue == value -> return midIndex
+      } if (data.get(midIndex) == value){
+        return midIndex;
+      // Recursive case 1: value in upper bucket
+      } else if (data.get(midIndex) < value){
+        return binarySearchRecursive(value, midIndex + 1, highIndex);
+      // Recursive case 2: value in lower bucket
+      } else {
+        return binarySearchRecursive(value, lowIndex, midIndex - 1);
+      }
+
     }
     
 	
@@ -156,5 +205,9 @@ public class SortSearch{
     }
     
 
-    
+    // NEW testing method
+    // Return the size of data
+    public int getSize(){
+      return data.size();
+    }
 }
